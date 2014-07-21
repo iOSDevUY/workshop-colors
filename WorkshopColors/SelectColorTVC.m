@@ -62,8 +62,12 @@
     
     NSDictionary *color = [_colors objectAtIndex:indexPath.row];
     
+    UIColor *realColor = [[ColorsManager sharedManager] colorForRGBString:color[@"rgb"]];
+    
     cell.textLabel.text = color[@"name"];
     cell.detailTextLabel.text = color[@"hex"];
+    cell.backgroundColor = realColor;
+    cell.textLabel.textColor = [[UIColor colorWithRed:1.f green:1.f blue:1.f alpha:1.0] isEqual:realColor] ? [UIColor grayColor] : [UIColor whiteColor];
     
     return cell;
 }

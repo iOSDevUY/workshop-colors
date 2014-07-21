@@ -14,4 +14,6 @@
 
 - (void)fetchColors:(void(^)(NSArray *colors))success failed:(void(^)(NSString *error))failed;
 
+- (UIColor *)colorForRGBString:(NSString *)rgbString;
+
 @end

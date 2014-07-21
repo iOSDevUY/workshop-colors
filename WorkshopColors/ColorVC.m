@@ -7,6 +7,7 @@
 //
 
 #import "ColorVC.h"
+#import "ColorsManager.h"
 
 @interface ColorVC ()
 
@@ -32,16 +33,7 @@
     _hexLabel.text = _selectedColor[@"hex"];
     _rgbLabel.text = _selectedColor[@"rgb"];
     
-    NSString *rgbColor = _selectedColor[@"rgb"];
-    NSArray *colors = [rgbColor componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"(,)"]];
-    
-    // positions 0 and 4 have empty strings
-    
-    CGFloat red = [[colors objectAtIndex:1] intValue];
-    CGFloat green = [[colors objectAtIndex:2] intValue];
-    CGFloat blue = [[colors objectAtIndex:3] intValue];
-    
-    self.view.backgroundColor = [UIColor colorWithRed:red/255.f green:green/255.f blue:blue/255.f alpha:1.0];
+    self.view.backgroundColor = [[ColorsManager sharedManager] colorForRGBString:_selectedColor[@"rgb"]];
 }
 
 @end
