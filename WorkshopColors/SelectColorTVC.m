@@ -78,6 +78,7 @@
         
         NSDictionary *color = [_colors objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         [segue.destinationViewController setSelectedColor:color];
+        [segue.destinationViewController setTitle:color[@"name"]];
     }
 }
 
